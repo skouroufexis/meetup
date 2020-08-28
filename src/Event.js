@@ -1,33 +1,81 @@
 import React, { Component } from 'react';
 
-// MOCK DATA
-let local_time='19:00';
-let local_date='2020-08-26';
-    let time=local_time+'-'+local_date;
-let name = 'Networking and Idea Sharing  - Aperitivo con Bologna Startup';
-let group={name:'Bologna Startup'};
-    let groupName='GROUP: '+ group.name;
 
-let yes_rsvp_count='6';
-    yes_rsvp_count=yes_rsvp_count+ ' people are going';
-
-let address_1='Via Europa';
-let description='Mock description for event';
-let visibility= 'public';
-let link='https://www.meetup.com/Bologna-Start-Up/events/fpctnlybclbjc/';
-    link= 'Event Link: '+link;
 
 
 
 class Event extends Component{
     
-    state = {
-        open:false,        
-        content:[]
+    constructor(props){
+        super(props)
 
-      }
+        this.state = {
+            open:false,
+            event:[this.props.event],        
+            content:[]
+          }
 
-      
+          
+          
+    }
+    
+
+    render(){
+
+        
+        
+        if(this.state.content)
+        
+        {
+            
+            return(
+                <div>
+                    <div className='div_eventContent'>
+                        {this.state.content.map(
+                            function(c)
+                            {
+                                return(<p key={c+ '1'}>{c}</p>)    
+
+                            }
+                        )}                    
+                    </div>
+                    
+                    <div className='div_toggleDetails'>
+                        <button onClick={this.toggleDetails}  >Details </button>
+                    </div>
+                    
+                </div>
+            )
+        }
+        else
+        {
+            return('loading')
+        }
+        
+
+    }
+
+    componentDidMount(){
+        
+        
+        if(this.props.event)
+        {
+            
+            let event= this.props.event;
+            
+            let eventTime = event.local_time +'-'+ event.local_date;
+            let eventName=event.name;
+            let groupName='GROUP: '+event.name;
+            let rsvp=event.yes_rsvp_count +' people are going';        
+            let description=event.description;
+            let visibility=event.visibility;
+            let link = event.link;   
+            this.setState({content:[eventTime,eventName,groupName,rsvp]});
+        }
+        
+        
+        
+    }
 
     toggleDetails=()=>{
         
@@ -43,55 +91,28 @@ class Event extends Component{
         }
         
     }  
-
-    render(){
-        
-        if(this.state.content)
-        {
-            return(
-                <div>
-                    <div className='div_eventContent'>
     
-                        {this.state.content.map(
-                            function(c)
-                            {
-                                return(<p key={c}>{c}</p>)    
-
-                            }
-                            
-                        )}                    
-                    </div>
-                    
-                    <div className='div_toggleDetails'>
-                        <button onClick={this.toggleDetails}  >Details </button>
-                    </div>
-                </div>
-            )
-        }
-        else
-        {
-            return('loading')
-        }
-        
-
-    }
-
-    componentDidMount(){
-
-            this.setState({content:[time,name,groupName,yes_rsvp_count]});
-        
-    }
-
-
     updateContent=()=>{
+
+       let content=this.props.event;
+        
+        let eventTime = content.local_time +' - '+ content.local_date;
+        let eventName=content.name;
+        let groupName='GROUP: ' + content.group.name;
+        let rsvp=content.yes_rsvp_count +' people are going';        
+        let description=content.description;
+        let visibility=content.visibility;
+        let link = content.link;   
+
+        
+
         if(this.state.open==false)
         {
-            this.setState({content:[time,name,groupName,yes_rsvp_count]})
+            this.setState({content:[eventTime,eventName,groupName,rsvp]})
         }
         else
         {
-            this.setState({content:[time,name,groupName,yes_rsvp_count,
-                address_1,description,visibility,link]});
+            this.setState({content:[eventTime,eventName,groupName,rsvp,description,visibility,link]});
         }
     }
 
