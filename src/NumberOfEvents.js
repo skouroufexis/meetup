@@ -10,8 +10,8 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div>
-          <label id='numberOfEventsLabel'>Number of events showing:</label>
-          <input id='input_numberOfEvents' type='text' value= {this.state.number} onChange={this.changeNumber}></input> 
+          {/* <label id='numberOfEventsLabel'>Number of events showing:</label> */}
+          Show <input id='input_numberOfEvents' type='text' value= {this.state.number} onChange={this.changeNumber}></input> events
           
       </div>
     );
