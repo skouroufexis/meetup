@@ -16,10 +16,7 @@ describe('<NumberOfEvents /> component', () => {
     expect(NumberOfEventsWrapper.find('#input_numberOfEvents')).toHaveLength(1);
   });
 
-  test('render number of events text input label', () => {
-    
-    expect(NumberOfEventsWrapper.find('#numberOfEventsLabel')).toHaveLength(1);
-  });
+ 
 
   test('Initial value of number of events = 32', () => {
     
