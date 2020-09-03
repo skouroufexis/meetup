@@ -10,7 +10,7 @@ function getAccessToken(){
   if (!accessToken) 
   {
     const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get('code');
+    let code = searchParams.get('code');
 
     if (!code) {
       
