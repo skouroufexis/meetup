@@ -88,8 +88,13 @@ async function getSuggestions(query) {
     console.log(query);
     if (token) {
       const url = 'https://api.meetup.com/find/locations?query='+query+'&access_token='+ token;
-      const result = await axios.get(url);
-      console.log(result);
+      // const result = await axios.get(url);
+      const result = fetch(url).then(function(data){
+        console.log(data);
+      }).catch(function(error){
+        console.log(error);
+      })
+      
       // return result.data;
     }
     return [];
