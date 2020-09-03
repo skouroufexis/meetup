@@ -34,7 +34,7 @@ class Event extends Component{
                         {this.state.content.map(
                             function(c)
                             {
-                                return(<p key={c+ '1'}>{c}</p>)    
+                                return({c})    
 
                             }
                         )}                    
