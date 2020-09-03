@@ -87,7 +87,7 @@ async function getSuggestions(query) {
     console.log(token);
     console.log(query);
     if (token) {
-      const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
+      const url = ' https://cors-anywhere.herokuapp.com/https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
       + query+ '&access_token=' + token;
       
     const result = await axios.get(url);
@@ -106,7 +106,7 @@ async function getSuggestions(query) {
       const token = await getAccessToken();
 
       if (token) {
-        let url = 'https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public'
+        let url = ' https://cors-anywhere.herokuapp.com/https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public'
           + '&access_token=' + token;
         // lat, lon is optional; if you have a lat and lon, you can add them
         if (lat && lon) {
