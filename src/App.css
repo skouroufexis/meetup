@@ -57,7 +57,8 @@ input[type="text"], input[type="number"] {
 
 
 .suggestions > li:hover {
-  background-color: #BCDCDB;
+  background-color: rgb(188, 220, 219);
+  cursor: pointer;
 }
 
 .Event {
@@ -69,7 +70,7 @@ input[type="text"], input[type="number"] {
   position: relative;
 }
 
-.details-btn {
+/* .details_btn {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -103,5 +104,31 @@ input[type="text"], input[type="number"] {
   width: 80px;
   margin: 20px 0 50px;
   text-align: right;
-}
+} */
 
+.container {margin-top: 1%;}
+.row{justify-content: center;}
+
+
+label {font-weight: bold;}
+
+#input_numberOfEvents {text-align: center;
+                       margin-bottom: 2%;
+                       color: rgba(0,0,0,0.8);
+                       font-weight: bold;
+                       border: none; 
+                       background-color: rgb(145, 216, 214,0.1);
+                        }
+
+button {background-color:rgb(145, 216, 214);
+        color: white;
+        border: solid white thin;
+        box-shadow: 0px 0px 2px rgb(145, 216, 214);
+        margin-top: 1%;
+    }
+.event { background-color:rgb(145, 216, 214,0.15) ;
+         box-shadow: 0px 0px 7px rgb(145, 216, 214,1);
+         padding-top: 1%;
+         padding-bottom: 1%;
+
+      }
