@@ -68,7 +68,16 @@ class Event extends Component{
             let eventTime = event.local_time +'-'+ event.local_date;
             let eventName=event.name;
             let groupName='GROUP: '+event.name;
-            let rsvp=event.yes_rsvp_count +' people are going';        
+            let rsvp=event.yes_rsvp_count;
+                if (rsvp==1)
+                {
+                    rsvp=rsvp+' person is going';
+                }
+                else
+                {
+                    rsvp=rsvp+' persons are going';
+                }
+            
             let description=event.description;
             
             let visibility=event.visibility;
