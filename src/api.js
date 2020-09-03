@@ -87,9 +87,9 @@ async function getSuggestions(query) {
     console.log(token);
     console.log(query);
     if (token) {
-      const url = 'http://cors.io/?https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
-      + query
-      + '&access_token=' + token;
+      const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
+      + query+ '&access_token=' + token;
+      
     const result = await axios.get(url);
     return result.data;
     }
