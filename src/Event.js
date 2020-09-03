@@ -68,7 +68,7 @@ class Event extends Component{
             let groupName='GROUP: '+event.name;
             let rsvp=event.yes_rsvp_count +' people are going';        
             let description=event.description;
-                description=decodeURI(description);
+                description =description.replace('<p>','');
             let visibility=event.visibility;
             let link = event.link;   
             this.setState({content:[eventTime,eventName,groupName,rsvp]});
