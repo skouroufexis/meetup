@@ -70,7 +70,7 @@ class Event extends Component{
             let description=event.description;
             let visibility=event.visibility;
             let link = event.link;   
-            this.setState({content:[eventTime,eventName,groupName,rsvp]});
+            this.setState({content:[decodeURI (eventTime),decodeURI(eventName),decodeURI(groupName), decodeURI(rsvp)]});
         }
         
         
@@ -108,11 +108,11 @@ class Event extends Component{
 
         if(this.state.open==false)
         {
-            this.setState({content:[eventTime,eventName,groupName,rsvp]})
+            this.setState({content:[decodeURI (eventTime),decodeURI(eventName),decodeURI(groupName), decodeURI(rsvp)]})
         }
         else
         {
-            this.setState({content:[eventTime,eventName,groupName,rsvp,description,visibility,link]});
+            this.setState({content:[decodeURI (eventTime),decodeURI(eventName),decodeURI(groupName), decodeURI(rsvp),decodeURI(description), decodeURI(visibility),decodeURI (link)]});
         }
     }
 
