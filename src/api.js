@@ -22,12 +22,13 @@ function getAccessToken(){
     return getOrRenewAccessToken('get', code);
   }  
   const lastSavedTime = localStorage.getItem('last_saved_time');
-  console.log (lastSavedTime);
-  debugger;
-  // if (accessToken && (Date.now() - lastSavedTime < 3600000))
-  //  {
-  //   return accessToken;
-  //   }
+  
+  
+  if (accessToken && (Date.now() - lastSavedTime < 3600000))
+   {
+     console.log(accessToken);
+     return accessToken;
+    }
   // If the access_token is expired, we try to renew it by using refresh_token
   const refreshToken = localStorage.getItem('refresh_token');
   return getOrRenewAccessToken('renew', refreshToken); 
