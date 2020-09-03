@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getSuggestions } from './api';
+import { getSuggestions } from './api' ;
 
 class CitySearch extends Component {
     state = {
