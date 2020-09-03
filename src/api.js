@@ -21,15 +21,9 @@ function getAccessToken(){
     if (accessToken && (Date.now() - lastSavedTime < 3600000)) {
     return accessToken;
     }
-    else
-    {
-
-      // If the access_token is expired, we try to renew it by using refresh_token
-      const refreshToken = localStorage.getItem('refresh_token');
-      return getOrRenewAccessToken('renew', refreshToken);  
-
-    }
-  
+    // If the access_token is expired, we try to renew it by using refresh_token
+  const refreshToken = localStorage.getItem('refresh_token');
+  return getOrRenewAccessToken('renew', refreshToken); 
 }
 
 
@@ -37,7 +31,6 @@ async function getOrRenewAccessToken(type, key) {
   let url;
   if (type === 'get') {
     // Lambda endpoint to get token by code
-    
     url = 'https://3lasqwgywb.execute-api.eu-central-1.amazonaws.com/dev/api/token/'+key;
   } else if (type === 'renew') {
     // Lambda endpoint to get token by refresh_token
