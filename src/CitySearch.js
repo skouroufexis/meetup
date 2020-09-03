@@ -11,7 +11,7 @@ class CitySearch extends Component {
       handleInputChanged = (event) => {
         const value = event.target.value;
         this.setState({ query: value }); //changes the search text value
-        
+
         getSuggestions(value).then(suggestions => this.setState({ suggestions }));
       }
 
@@ -22,18 +22,20 @@ class CitySearch extends Component {
 
   render() {
     return (
-      <div className="CitySearch">
-          <input type="text" className="city" value={this.state.query} 
-          onChange={this.handleInputChanged}
-          placeholder='city'
-          />
-          <ul className="suggestions">
-            {this.state.suggestions.map(item =>
-                <li key={item.name_string} onClick={() => this.handleItemClicked(item.name_string,item.lat, item.lon)} >
-                    {item.name_string}
-                </li>
-                )}
-          </ul>
+      <div className='container'>
+        <div className="CitySearch container">
+            <input type="text" className="city" value={this.state.query} 
+            onChange={this.handleInputChanged}
+            placeholder='city'
+            />
+            <ul className="suggestions">
+              {this.state.suggestions.map(item =>
+                  <li key={item.name_string} onClick={() => this.handleItemClicked(item.name_string,item.lat, item.lon)} >
+                      {item.name_string}
+                  </li>
+                  )}
+            </ul>
+        </div>
       </div>
     );
   }
