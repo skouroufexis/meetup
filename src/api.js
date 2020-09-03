@@ -14,7 +14,7 @@ function getAccessToken(){
 
     if (!code) {
       
-      window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=59m4fh64fvor80i00f25e5ia7c&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
+      window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=g98oji2r0tj027dcu7712vtepd&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
       code = searchParams.get('code');
       // return null;
     }
