@@ -1,6 +1,62 @@
 import {mockEvents} from './mock-events'; 
 import axios from 'axios';
 
+
+
+function getAccessToken(){
+    
+  const accessToken = localStorage.getItem('access_token');
+  if (!accessToken) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get('code');
+
+    if (!code) {
+      window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=59m4fh64fvor80i00f25e5ia7c&response_type=code&redirect_uri=https://mvtuong.github.io/meetup/';
+      return null;
+    }
+    return getOrRenewAccessToken('get', code);
+  }  
+    const lastSavedTime = localStorage.getItem('last_saved_time');
+
+    if (accessToken && (Date.now() - lastSavedTime < 3600000)) {
+    return accessToken;
+    }
+    else
+    {
+
+      // If the access_token is expired, we try to renew it by using refresh_token
+      const refreshToken = localStorage.getItem('refresh_token');
+      return getOrRenewAccessToken('renew', refreshToken);  
+
+    }
+  
+}
+
+
+async function getOrRenewAccessToken(type, key) {
+  let url;
+  if (type === 'get') {
+    // Lambda endpoint to get token by code
+    
+    url = 'https://3lasqwgywb.execute-api.eu-central-1.amazonaws.com/dev/api/token/'+key;
+  } else if (type === 'renew') {
+    // Lambda endpoint to get token by refresh_token
+    url = 'https://3lasqwgywb.execute-api.eu-central-1.amazonaws.com/dev/api/refresh/'+key;
+  }
+
+  // Use Axios to make a GET request to the endpoint
+  const tokenInfo = await axios.get(url);
+
+  // Save tokens to localStorage together with a timestamp
+  localStorage.setItem('access_token', tokenInfo.data.access_token);
+  localStorage.setItem('refresh_token', tokenInfo.data.refresh_token);
+  localStorage.setItem('last_saved_time', Date.now());
+
+  // Return the access_token
+  return tokenInfo.data.access_token;
+}
+
+
 async function getSuggestions(query) {
   if (window.location.href.startsWith('http://localhost')) {
     return [
@@ -55,75 +111,7 @@ async function getSuggestions(query) {
         const result = await axios.get(url);
         return result.data.events;
       }  
-
     }
-
-
   }
-
-
-
-  function getAccessToken(){
-    const accessToken = localStorage.getItem('access_token');
-
-    if (!accessToken) {
-      const searchParams = new URLSearchParams(window.location.search);
-      const code = searchParams.get('code');
-  
-      if (!code) {
-        window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=g98oji2r0tj027dcu7712vtepd&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
-        return null;
-      }
-      return getOrRenewAccessToken('get', code);
-    }
-
-    else
-    {
-      const lastSavedTime = localStorage.getItem('last_saved_time');
-
-      if (accessToken && (Date.now() - lastSavedTime < 3600000)) {
-      return accessToken;
-      }
-      else
-      {
-
-        // If the access_token is expired, we try to renew it by using refresh_token
-        const refreshToken = localStorage.getItem('refresh_token');
-        return getOrRenewAccessToken('renew', refreshToken);  
-
-      }
-    }
-
-
-
-  }
-
-
-  async function getOrRenewAccessToken(type, key) {
-    let url;
-    if (type === 'get') {
-      // Lambda endpoint to get token by code
-      
-      url = 'https://cngj499u91.execute-api.eu-central-1.amazonaws.com/dev/api/token/'
-        + key;
-    } else if (type === 'renew') {
-      // Lambda endpoint to get token by refresh_token
-      url = 'https://c5usrytrsg.execute-api.eu-central-1.amazonaws.com/dev/api/refresh/'
-        + key;
-    }
-  
-    // Use Axios to make a GET request to the endpoint
-    const tokenInfo = await axios.get(url);
-  
-    // Save tokens to localStorage together with a timestamp
-    localStorage.setItem('access_token', tokenInfo.data.access_token);
-    localStorage.setItem('refresh_token', tokenInfo.data.refresh_token);
-    localStorage.setItem('last_saved_time', Date.now());
-  
-    // Return the access_token
-    return tokenInfo.data.access_token;
-  }
-
-
 
   export { getSuggestions,getEvents };
