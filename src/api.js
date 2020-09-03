@@ -13,7 +13,7 @@ function getAccessToken(){
     const code = searchParams.get('code');
 
     if (!code) {
-      alert('a')
+      
       window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=59m4fh64fvor80i00f25e5ia7c&response_type=code&redirect_uri=https://mvtuong.github.io/meetup/';
       code = searchParams.get('code');
       // return null;
