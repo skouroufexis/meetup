@@ -29,21 +29,23 @@ class Event extends Component{
         {
             
             return(
-                <div>
-                    <div className='div_eventContent'>
+                <div className='container event'>
+                    
+                    <div className='container'>
+                    <div className='div_eventContent row'>
                         {this.state.content.map(
                             function(c)
                             {
-                                return(<div key={c+ '1'}>{c}</div>)    
+                                return(<div className='col-12' key={c+ '1'}>{c}</div>)    
 
                             }
                         )}                    
                     </div>
                     
-                    <div className='div_toggleDetails'>
-                        <button onClick={this.toggleDetails}  >Details </button>
+                    <div className='div_toggleDetails row'>
+                        <button  onClick={this.toggleDetails}>Details </button>
                     </div>
-                    
+                    </div>
                 </div>
             )
         }
