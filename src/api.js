@@ -4,7 +4,6 @@ import axios from 'axios';
 
 
 function getAccessToken(){
-    
   const accessToken = localStorage.getItem('access_token');
   console.log(accessToken);
   if (!accessToken) 
@@ -59,40 +58,41 @@ async function getOrRenewAccessToken(type, key) {
 
 
 
-  async function getSuggestions(query) {
-    if (window.location.href.startsWith('http://localhost')) {
-      return [
-        {
-          city: 'Munich',
-          country: 'de',
-          localized_country_name: 'Germany',
-          name_string: 'Munich, Germany',
-          zip: 'meetup3',
-          lat: 48.14,
-          lon: 11.58
-        },
-        {
-          city: 'Munich',
-          country: 'us',
-          localized_country_name: 'USA',
-          state: 'ND',
-          name_string: 'Munich, North Dakota, USA',
-          zip: '58352',
-          lat: 48.66,
-          lon: -98.85
-        }
-      ];
-    }
+async function getSuggestions(query) {
+  if (window.location.href.startsWith('http://localhost')) {
+    return [
+      {
+        city: 'Munich',
+        country: 'de',
+        localized_country_name: 'Germany',
+        name_string: 'Munich, Germany',
+        zip: 'meetup3',
+        lat: 48.14,
+        lon: 11.58
+      },
+      {
+        city: 'Munich',
+        country: 'us',
+        localized_country_name: 'USA',
+        state: 'ND',
+        name_string: 'Munich, North Dakota, USA',
+        zip: '58352',
+        lat: 48.66,
+        lon: -98.85
+      }
+    ];
+  }
   
     const token = await getAccessToken();
-    if (token) {
-      const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
-        + query
-        + '&access_token=' + token;
-      const result = await axios.get(url);
-      return result.data;
-    }
-    return [];
+    console.log(token);
+    // if (token) {
+    //   const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
+    //     + query
+    //     + '&access_token=' + token;
+    //   const result = await axios.get(url);
+    //   return result.data;
+    // }
+    // return [];
   }
 
 
