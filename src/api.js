@@ -6,7 +6,9 @@ import axios from 'axios';
 function getAccessToken(){
     
   const accessToken = localStorage.getItem('access_token');
-  if (!accessToken) {
+  localStorage.clear();
+  if (!accessToken) 
+  {
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
 
@@ -17,12 +19,13 @@ function getAccessToken(){
     }
     return getOrRenewAccessToken('get', code);
   }  
-    const lastSavedTime = localStorage.getItem('last_saved_time');
+  const lastSavedTime = localStorage.getItem('last_saved_time');
 
-    if (accessToken && (Date.now() - lastSavedTime < 3600000)) {
+  if (accessToken && (Date.now() - lastSavedTime < 3600000))
+   {
     return accessToken;
     }
-    // If the access_token is expired, we try to renew it by using refresh_token
+  // If the access_token is expired, we try to renew it by using refresh_token
   const refreshToken = localStorage.getItem('refresh_token');
   return getOrRenewAccessToken('renew', refreshToken); 
 }
