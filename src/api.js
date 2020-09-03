@@ -56,7 +56,7 @@ async function getOrRenewAccessToken(type, key) {
 }
 
 
-async function getSuggestions(query) {
+
   async function getSuggestions(query) {
     if (window.location.href.startsWith('http://localhost')) {
       return [
@@ -92,7 +92,7 @@ async function getSuggestions(query) {
     }
     return [];
   }
-}
+
 
   async function getEvents(lat, lon) {
     if (window.location.href.startsWith('http://localhost')) {
