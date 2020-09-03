@@ -85,6 +85,7 @@ async function getSuggestions(query) {
   
     const token = await getAccessToken();
     console.log(token);
+    console.log(query);
     // if (token) {
     //   const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
     //     + query
