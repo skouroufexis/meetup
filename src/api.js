@@ -16,8 +16,9 @@ function getAccessToken(){
       
       window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=g98oji2r0tj027dcu7712vtepd&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
       code = searchParams.get('code');
-      // return null;
+      console.log(code);
     }
+    console.log(code);
     return getOrRenewAccessToken('get', code);
   }  
   const lastSavedTime = localStorage.getItem('last_saved_time');
