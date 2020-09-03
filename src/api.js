@@ -6,30 +6,30 @@ import axios from 'axios';
 function getAccessToken(){
     
   const accessToken = localStorage.getItem('access_token');
-  
-  if (!accessToken) 
-  {
-    const searchParams = new URLSearchParams(window.location.search);
-    let code = searchParams.get('code');
+  console.log(accessToken);
+  // if (!accessToken) 
+  // {
+  //   const searchParams = new URLSearchParams(window.location.search);
+  //   let code = searchParams.get('code');
 
-    if (!code) {
+  //   if (!code) {
       
-      window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=g98oji2r0tj027dcu7712vtepd&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
-      code = searchParams.get('code');
-      console.log(code);
-    }
-    console.log(code);
-    return getOrRenewAccessToken('get', code);
-  }  
-  const lastSavedTime = localStorage.getItem('last_saved_time');
+  //     window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=g98oji2r0tj027dcu7712vtepd&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
+      
+  //     return null;  
+  //   }
+    
+  //   return getOrRenewAccessToken('get', code);
+  // }  
+  // const lastSavedTime = localStorage.getItem('last_saved_time');
 
-  if (accessToken && (Date.now() - lastSavedTime < 3600000))
-   {
-    return accessToken;
-    }
-  // If the access_token is expired, we try to renew it by using refresh_token
-  const refreshToken = localStorage.getItem('refresh_token');
-  return getOrRenewAccessToken('renew', refreshToken); 
+  // if (accessToken && (Date.now() - lastSavedTime < 3600000))
+  //  {
+  //   return accessToken;
+  //   }
+  // // If the access_token is expired, we try to renew it by using refresh_token
+  // const refreshToken = localStorage.getItem('refresh_token');
+  // return getOrRenewAccessToken('renew', refreshToken); 
 }
 
 
@@ -57,43 +57,41 @@ async function getOrRenewAccessToken(type, key) {
 
 
 async function getSuggestions(query) {
-  if (window.location.href.startsWith('http://localhost')) {
-    return [
-      {
-        city: 'Munich',
-        country: 'de',
-        localized_country_name: 'Germany',
-        name_string: 'Munich, Germany',
-        zip: 'meetup3',
-        lat: 48.14,
-        lon: 11.58
-      },
-      {
-        city: 'Munich',
-        country: 'us',
-        localized_country_name: 'USA',
-        state: 'ND',
-        name_string: 'Munich, North Dakota, USA',
-        zip: '58352',
-        lat: 48.66,
-        lon: -98.85
-      }
-    ];
-  }
-
-  const token = await getAccessToken();
-  if (token) {
-    const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
-      + query
-      + '&access_token=' + token;
-    const result = await axios.get(url);
-    if(result)
-    {
-      return result.data;  
+  async function getSuggestions(query) {
+    if (window.location.href.startsWith('http://localhost')) {
+      return [
+        {
+          city: 'Munich',
+          country: 'de',
+          localized_country_name: 'Germany',
+          name_string: 'Munich, Germany',
+          zip: 'meetup3',
+          lat: 48.14,
+          lon: 11.58
+        },
+        {
+          city: 'Munich',
+          country: 'us',
+          localized_country_name: 'USA',
+          state: 'ND',
+          name_string: 'Munich, North Dakota, USA',
+          zip: '58352',
+          lat: 48.66,
+          lon: -98.85
+        }
+      ];
     }
-    
+  
+    const token = await getAccessToken();
+    if (token) {
+      const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
+        + query
+        + '&access_token=' + token;
+      const result = await axios.get(url);
+      return result.data;
+    }
+    return [];
   }
-  return [];
 }
 
   async function getEvents(lat, lon) {
