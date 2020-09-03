@@ -7,29 +7,29 @@ function getAccessToken(){
     
   const accessToken = localStorage.getItem('access_token');
   console.log(accessToken);
-  // if (!accessToken) 
-  // {
-  //   const searchParams = new URLSearchParams(window.location.search);
-  //   let code = searchParams.get('code');
+  if (!accessToken) 
+  {
+    const searchParams = new URLSearchParams(window.location.search);
+    let code = searchParams.get('code');
 
-  //   if (!code) {
+    if (!code) {
       
-  //     window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=g98oji2r0tj027dcu7712vtepd&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
+      window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=g98oji2r0tj027dcu7712vtepd&response_type=code&redirect_uri=https://skouroufexis.github.io/meetup/';
       
-  //     return null;  
-  //   }
+      return null;  
+    }
     
-  //   return getOrRenewAccessToken('get', code);
-  // }  
-  // const lastSavedTime = localStorage.getItem('last_saved_time');
-
+    return getOrRenewAccessToken('get', code);
+  }  
+  const lastSavedTime = localStorage.getItem('last_saved_time');
+  console.log (lastSavedTime);
   // if (accessToken && (Date.now() - lastSavedTime < 3600000))
   //  {
   //   return accessToken;
   //   }
-  // // If the access_token is expired, we try to renew it by using refresh_token
-  // const refreshToken = localStorage.getItem('refresh_token');
-  // return getOrRenewAccessToken('renew', refreshToken); 
+  // If the access_token is expired, we try to renew it by using refresh_token
+  const refreshToken = localStorage.getItem('refresh_token');
+  return getOrRenewAccessToken('renew', refreshToken); 
 }
 
 
