@@ -68,9 +68,10 @@ class Event extends Component{
             let groupName='GROUP: '+event.name;
             let rsvp=event.yes_rsvp_count +' people are going';        
             let description=event.description;
+                description=decodeURIComponent(description);
             let visibility=event.visibility;
             let link = event.link;   
-            this.setState({content:[decodeURI (eventTime),decodeURI(eventName),decodeURI(groupName), decodeURI(rsvp)]});
+            this.setState({content:[eventTime,eventName,groupName,rsvp]});
         }
         
         
@@ -108,11 +109,11 @@ class Event extends Component{
 
         if(this.state.open==false)
         {
-            this.setState({content:[decodeURI (eventTime),decodeURI(eventName),decodeURI(groupName), decodeURI(rsvp)]})
+            this.setState({content:[eventTime,eventName,groupName,rsvp]})
         }
         else
         {
-            this.setState({content:[decodeURI (eventTime),decodeURI(eventName),decodeURI(groupName), decodeURI(rsvp),decodeURI(description), decodeURI(visibility),decodeURI (link)]});
+            this.setState({content:[eventTime,eventName,groupName,rsvp,description,visibility,link]});
         }
     }
 
