@@ -15,16 +15,16 @@ class EventList extends Component {
 
   countEvents(){
     let n=this.props.eventsNumber;
-    if(isNaN(n) || n=='')
-    {n=32}
-
+  
     let c;
     let events=[];
 
     // let totalEvents=this.props.events.length;
     if(this.props.events!='')
     {
-
+      if(isNaN(n) || n==''){
+        n=32
+      }
       for(c=0;c<n;c++)
       {
         //if user digits a higher number than the total number of events
