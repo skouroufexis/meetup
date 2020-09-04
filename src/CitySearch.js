@@ -40,16 +40,9 @@ class CitySearch extends Component {
   }
 
   componentDidMount(){
-    if(this.state.query==''){
-      getSuggestions();
-    }
+    this.handleItemClicked();
   }
 
-  componentDidUpdate(){
-    if(this.state.query==''){
-      getSuggestions();
-    }
-  }
 }
 
 export default CitySearch;
