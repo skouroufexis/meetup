@@ -6,8 +6,7 @@ class CitySearch extends Component {
         query: '',
         suggestions: []
       }
-
-
+      
       handleInputChanged = (event) => {
         const value = event.target.value;
         this.setState({ query: value }); //changes the search text value
@@ -38,6 +37,18 @@ class CitySearch extends Component {
         </div>
       </div>
     );
+  }
+
+  componentDidMount(){
+    if(this.state.query==''){
+      getSuggestions();
+    }
+  }
+
+  componentDidUpdate(){
+    if(this.state.query==''){
+      getSuggestions();
+    }
   }
 }
 
