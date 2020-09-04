@@ -5,19 +5,12 @@ import Event from './Event';
 class EventList extends Component {
     
   render() {
-    events.map(e=>{
-      return (
+    
+    return (
         <ul className="EventList">
-              
-              <li key={e}>
-                <Event className='Event' event={e} />
-              </li>
-
-          {/* {this.countEvents()} */}
+          {this.countEvents()}
       </ul>
     );
-    })
-    
   }
 
   countEvents(){
