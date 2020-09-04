@@ -112,6 +112,7 @@ async function getSuggestions(query) {
           url += '&lat=' + lat + '&lon=' + lon;
         }
         const result = await axios.get(url);
+        console.log(result);
         return result.data.events;
       }  
     }
