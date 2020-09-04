@@ -12,6 +12,9 @@ class CitySearch extends Component {
         this.setState({ query: value }); //changes the search text value
 
         getSuggestions(value).then(suggestions => this.setState({ suggestions }));
+        if(this.state.query==""){
+          this.handleItemClicked();
+        }
       }
 
       handleItemClicked = (value,lat, lon) => {
