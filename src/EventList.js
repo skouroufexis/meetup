@@ -40,14 +40,15 @@ class EventList extends Component {
       }
 
     }
-      let x=events.map(e=>{
+       let shownEvents=events.map(e=>{
        return (
               <li key={e}>
                 <Event className='Event' event={e} />
               </li>
             )
       })
-      return x;
+      console.log(shownEvents);
+      return shownEvents;
   }
 
 }
