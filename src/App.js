@@ -31,8 +31,8 @@ class App extends Component {
   }
   
   updateEvents = (lat, lon) => {
-    let eventsNumber=this.state.eventsNumber;
-    getEvents(lat, lon,eventsNumber).then(events => this.setState({ events:events }));
+    
+    getEvents(lat, lon).then(events => this.setState({ events:events }));
   }
 
 
