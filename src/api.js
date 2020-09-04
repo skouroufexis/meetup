@@ -96,7 +96,7 @@ async function getSuggestions(query) {
   }
 
 
-  async function getEvents(lat, lon) {
+  async function getEvents(lat, lon,eventsNumber) {
     if (window.location.href.startsWith('http://localhost')) {
     return mockEvents.events;
     }
@@ -106,7 +106,7 @@ async function getSuggestions(query) {
 
       if (token) {
         let url = ' https://cors-anywhere.herokuapp.com/https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public'
-          + '&access_token=' + token;
+          + '&page=2&access_token=' + token;
         // lat, lon is optional; if you have a lat and lon, you can add them
         if (lat && lon) {
           url += '&lat=' + lat + '&lon=' + lon;
