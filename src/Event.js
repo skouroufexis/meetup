@@ -14,9 +14,6 @@ class Event extends Component{
             event:[this.props.event],        
             content:[]
           }
-
-          
-          
     }
     
 
@@ -31,21 +28,20 @@ class Event extends Component{
             return(
                 <div className='container event'>
                     
-                    <div className='container'>
-                    <div className='div_eventContent row'>
+                    
+                    <div className='div_eventContent container'>
                         {this.state.content.map(
                             function(c)
                             {
-                                return(<div className='col-12' key={c+ '1'}>{c}</div>)    
-
+                                return(<div className='row' key={c+ '1'}><div className='col-12'>{c}</div></div>)    
                             }
                         )}                    
                     </div>
                     
-                    <div className='div_toggleDetails row'>
+                    <div className='d-flex flex-row-reverse' id='div_toggleDetails'>
                         <button  onClick={this.toggleDetails}>Details </button>
                     </div>
-                    </div>
+                    
                 </div>
             )
         }
@@ -58,16 +54,17 @@ class Event extends Component{
     }
 
     componentDidMount(){
-        
-        
+
         if(this.props.event)
         {
-            
             let event= this.props.event;
-            
-            let eventTime = event.local_time +'-'+ event.local_date;
+
+            let eventTime = event.local_date +' at '+ event.local_time;
+                
             let eventName=event.name;
-            let groupName='GROUP: '+event.name;
+                
+            let groupName= 'Group: '+ event.group.name;
+                
             let rsvp=event.yes_rsvp_count;
                 if (rsvp==1)
                 {
@@ -76,12 +73,7 @@ class Event extends Component{
                 else
                 {
                     rsvp=rsvp+' persons are going';
-                }
-            
-            let description=event.description;
-            
-            let visibility=event.visibility;
-            let link = event.link;   
+                } 
             this.setState({content:[eventTime,eventName,groupName,rsvp]});
         }
         
@@ -106,15 +98,31 @@ class Event extends Component{
     
     updateContent=()=>{
 
-       let content=this.props.event;
-        
-        let eventTime = content.local_time +' - '+ content.local_date;
-        let eventName=content.name;
-        let groupName='GROUP: ' + content.group.name;
-        let rsvp=content.yes_rsvp_count +' people are going';        
-        let description=content.description;
-        let visibility=content.visibility;
-        let link = content.link;   
+        let event= this.props.event;
+
+        let eventTime = event.local_date +' at '+ event.local_time;
+            
+        let eventName=event.name;
+            
+        let groupName= 'Group: '+ event.group.name;
+            
+        let rsvp=event.yes_rsvp_count;
+            if (rsvp==1)
+            {
+                rsvp=rsvp+' person is going';
+            }
+            else
+            {
+                rsvp=rsvp+' persons are going';
+            }
+    
+            console.log(event);
+        let description=<div>{event.description}</div>
+            
+            
+            
+        let visibility=event.visibility;
+        let link = <a href={event.link}>{event.link} </a>;  
 
         
 
