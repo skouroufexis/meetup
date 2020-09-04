@@ -12,7 +12,6 @@ class NumberOfEvents extends Component {
       <div className='container'>
         <div className='container'>
           <div className='row'>
-            {/* <label id='numberOfEventsLabel'>Number of events showing:</label> */}
             <label className='col-12'>No. of events displayed: </label>
             <input className='col-2'  id='input_numberOfEvents' type='text' value= {this.state.number} onChange={this.changeNumber}></input>
           </div> 
