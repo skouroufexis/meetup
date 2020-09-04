@@ -86,7 +86,7 @@ async function getSuggestions(query) {
     const token = await getAccessToken();
     
     if (token) {
-      const url = ' https://cors-anywhere.herokuapp.com/https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
+      const url = 'https://cors-anywhere.herokuapp.com/https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
       + query+ '&access_token=' + token;
       
     const result = await axios.get(url);
