@@ -41,7 +41,7 @@ class EventList extends Component {
     }
       let x=events.map(e=>{
        return (
-              <li key={e}>
+              <li key={e+1}>
                 <Event className='Event' event={e} />
               </li>
             )
