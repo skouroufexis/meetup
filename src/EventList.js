@@ -9,25 +9,15 @@ class EventList extends Component {
     return (
         <ul className="EventList">
           {this.countEvents()}
-        {/* {this.props.events.map(event =>
-            {
-
-                return (
-                  <li key={event.id}>
-                  <Event className='Event' event={event} />
-                </li>
-                )
-
-            }
-            
-          
-        )} */}
       </ul>
     );
   }
 
   countEvents(){
     let n=this.props.eventsNumber;
+    if(isNaN(n) || n=='')
+    {n=32}
+
     let c;
     let events=[];
 
@@ -45,8 +35,7 @@ class EventList extends Component {
         {
           events.push(this.props.events[c]);
         }
-        
-        
+
       }
 
     }
