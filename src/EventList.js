@@ -15,7 +15,7 @@ class EventList extends Component {
 
   countEvents(){
     let n=this.props.eventsNumber;
-  
+    console.log(this.props.events);
     let c;
     let events=[];
 
