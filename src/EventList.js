@@ -30,13 +30,22 @@ class EventList extends Component {
     let n=this.props.eventsNumber;
     let c;
     let events=[];
+
+    // let totalEvents=this.props.events.length;
     if(this.props.events!='')
     {
 
       for(c=0;c<n;c++)
       {
+        //if user digits a higher number than the total number of events
+        //available in a given location, do not display extra empty
+        // event boxes
+        if(events.length<this.props.events.length) 
+
+        {
+          events.push(this.props.events[c]);
+        }
         
-        events.push(this.props.events[c]);
         
       }
 
