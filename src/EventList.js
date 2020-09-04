@@ -10,20 +10,13 @@ class EventList extends Component {
         <ul className="EventList">
         {this.props.events.map(event =>
             {
-              
-              
-              
-              
-              
-                
+
                 return (
                   <li key={event.id}>
                   <Event className='Event' event={event} />
                 </li>
                 )
-              
-              
-                   
+
             }
             
           
