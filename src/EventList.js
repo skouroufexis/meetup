@@ -8,7 +8,8 @@ class EventList extends Component {
     
     return (
         <ul className="EventList">
-        {this.props.events.map(event =>
+          {this.countEvents()}
+        {/* {this.props.events.map(event =>
             {
 
                 return (
@@ -20,10 +21,36 @@ class EventList extends Component {
             }
             
           
-        )}
+        )} */}
       </ul>
     );
   }
+
+  countEvents(){
+    let n=this.props.eventsNumber;
+    let c;
+    let events=[];
+    if(this.props.events!='')
+    {
+
+      for(c=0;c<n;c++)
+      {
+        
+        events.push(this.props.events[c]);
+        
+      }
+
+    }
+      let x=events.map(e=>{
+       return (
+              <li key={e}>
+                <Event className='Event' event={e} />
+              </li>
+            )
+      })
+      return x;
+  }
+
 }
 
 export default EventList;
