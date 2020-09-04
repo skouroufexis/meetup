@@ -13,7 +13,9 @@ import { getEvents } from './api';
 
 class App extends Component {
 
-  state = {events:[]}
+  state = {events:[],
+           eventsNumber:32
+          }
 
   render(){
 
@@ -21,15 +23,21 @@ class App extends Component {
       <div className="App">
         
          <CitySearch  updateEvents={this.updateEvents} />
-         <NumberOfEvents />
-         <EventList events={this.state.events} />
-         {/* <Event /> */}
+         <NumberOfEvents updateEventsNumber={this.updateEventsNumber}  />
+         <EventList events={this.state.events} eventsNumber={this.state.eventsNumber} />
+         
       </div>
     )
   }
   
   updateEvents = (lat, lon) => {
-    getEvents(lat, lon).then(events => this.setState({ events:events }));
+    let eventsNumber=this.state.eventsNumber;
+    getEvents(lat, lon,eventsNumber).then(events => this.setState({ events:events }));
+  }
+
+
+  updateEventsNumber =(n)=>{
+    this.setState({eventsNumber:n});
   }
 }
 
