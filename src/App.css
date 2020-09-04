@@ -70,17 +70,7 @@ input[type="text"], input[type="number"] {
   position: relative;
 }
 
-/* .details_btn {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  background-color: #BCDCDB;
-
-}
+/* 
 
 .name {
   font-size: 18px;
@@ -107,7 +97,7 @@ input[type="text"], input[type="number"] {
 } */
 
 .container {margin-top: 1%;}
-.row{justify-content: center;}
+.row {justify-content: center;}
 
 
 label {font-weight: bold;}
@@ -120,15 +110,93 @@ label {font-weight: bold;}
                        background-color: rgb(145, 216, 214,0.1);
                         }
 
-button {background-color:rgb(145, 216, 214);
+
+
+
+
+button {
+        background-color:rgb(107, 226, 222);
         color: white;
         border: solid white thin;
         box-shadow: 0px 0px 2px rgb(145, 216, 214);
         margin-top: 1%;
+        right: ;
     }
-.event { background-color:rgb(145, 216, 214,0.15) ;
-         box-shadow: 0px 0px 7px rgb(145, 216, 214,1);
+
+
+.event { 
+  /* background-color:rgb(145, 216, 214,0.15) ; */
+         box-shadow: 0px 0px 5px rgb(145, 216, 214,1);
          padding-top: 1%;
          padding-bottom: 1%;
 
       }
+
+.div_eventContent div:nth-child(1) {
+  
+  font-weight: bold;
+  text-align: justify;
+}
+
+.div_eventContent div:nth-child(2) {
+  color: rgb(27, 112, 109); 
+  font-weight: bold;
+  text-align: justify;
+}
+
+
+.div_eventContent div:nth-child(3) {
+  text-transform: uppercase;
+    color: rgba(0,0,0,0.7);
+    text-align: justify;
+  }
+
+.div_eventContent div:nth-child(4) {
+    color:rgba(0,0,0,0.4);
+    font-style: italic;
+    text-align: justify;
+    }
+
+    .div_eventContent div:nth-child(5) {
+      color:rgba(0,0,0,0.8);
+      text-align: left;
+      font-size: 0.6em;
+      
+      }
+  
+.div_eventContent div:nth-child(6) {
+      color:rgba(0,0,0,0.4);
+      text-align: justify;
+      
+  }   
+
+.div_eventContent div:nth-child(7) {
+    color:rgba(0,0,0,0.4);
+    text-align: justify;
+    
+} 
+.div_eventContent a:nth-child(1) {
+  
+  color: rgb(27, 112, 109,1); 
+  cursor: pointer;
+}
+
+
+.div_eventContent a:nth-child(1):hover{
+  text-decoration: none;
+  
+}
+  
+
+      
+
+
+      
+
+      
+
+      
+
+
+
+      
