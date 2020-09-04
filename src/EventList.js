@@ -16,7 +16,7 @@ class EventList extends Component {
   countEvents(){
     let n=this.props.eventsNumber;
     console.log(this.props.events);
-    console.log(n);
+    
     let c;
     let events=[];
 
@@ -47,7 +47,7 @@ class EventList extends Component {
               </li>
             )
       })
-      console.log(shownEvents);
+      console.log(events);
       return shownEvents;
   }
 
