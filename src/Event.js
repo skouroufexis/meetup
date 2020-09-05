@@ -22,7 +22,7 @@ class Event extends Component{
         
         
         if(this.state.content)
-        
+        console.log(this.state.content);
         {
             
             return(
@@ -54,7 +54,7 @@ class Event extends Component{
     }
 
     componentDidMount(){
-
+        console.log(this.props.event);
         if(this.props.event)
         {
             let event= this.props.event;
@@ -75,6 +75,7 @@ class Event extends Component{
                     rsvp=rsvp+' persons are going';
                 } 
             this.setState({content:[eventTime,eventName,groupName,rsvp]});
+            console.log(this.state.content);
         }
         
         
