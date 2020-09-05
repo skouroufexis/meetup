@@ -25,9 +25,10 @@ class EventList extends Component {
 
 
   eventCounter(){
-
+    console.log(this.props.events);
+    console.log(this.props.events[0]);
     return(
-
+      
       <ul className="EventList">
         
         
