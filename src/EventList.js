@@ -8,12 +8,18 @@ class EventList extends Component {
     if (this.props.events>0)
       {
       return (
-          <ul className="EventList">
-          {this.props.events.map(event =>
-            <li key={event.id}>
-              <Event className='Event' event={event} />
+        //   <ul className="EventList">
+        //   {this.props.events.map(event =>
+        //     <li key={event.id}>
+        //       <Event className='Event' event={event} />
+        //     </li>
+        //   )}
+        // </ul>
+
+        <ul className="EventList">
+          <li key={this.props.events[0].id}>
+              <Event className='Event' event={this.props.events[0]} />
             </li>
-          )}
         </ul>
       );
     }
