@@ -27,6 +27,10 @@ class EventList extends Component {
 
     );
     }
+
+    else {
+      return('loading');
+    }
     
   
 }
