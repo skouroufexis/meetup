@@ -9,8 +9,9 @@ class EventList extends Component {
     
 
     console.log(this.props.events);
-    
-    return (
+    if(this.props.events.length>0)
+    {
+      return (
         <ul className="EventList">
         
           <li key={1}>
@@ -24,10 +25,9 @@ class EventList extends Component {
         )} */}
       </ul>
 
-        
-      
-      
     );
+    }
+    
   
 }
 
