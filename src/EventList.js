@@ -10,6 +10,8 @@ class EventList extends Component {
 
         let totalEvents=this.props.events;
         let n=this.props.eventsNumber;
+            if(n.trim()==''){n=32;}
+            if(isNaN(n)){n=32;}
         let c;
         let shownEvents=[];
 
