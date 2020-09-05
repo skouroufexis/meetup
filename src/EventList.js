@@ -14,9 +14,7 @@ class EventList extends Component {
       //     </li>
       //   )}
       // </ul>
-      <div>
-        this.eventCounter();
-      </div>
+      this.eventCounter()
       
     );
   }
