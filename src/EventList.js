@@ -13,6 +13,17 @@ class EventList extends Component {
     {
       console.log(this.props.events);
       return (
+
+
+
+        <ul className="EventList">
+        
+        
+          <li key={1}>
+            <Event className='Event' event={this.props.events[0]} />
+          </li>
+        
+      </ul>
       //   <ul className="EventList">
         
       //   {this.props.events.map(event =>
@@ -21,7 +32,7 @@ class EventList extends Component {
       //     </li>
       //   )}
       // </ul>
-        this.eventCounter()
+        // this.eventCounter()
     );
     }
 
