@@ -15,7 +15,7 @@ class EventList extends Component {
 
         for (c=0;c<n;c++)
         {
-          if(n<totalEvents.length)
+          if(c<totalEvents.length)
           {
             shownEvents.push(totalEvents[c]);
           }
