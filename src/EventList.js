@@ -5,21 +5,8 @@ import Event from './Event';
 class EventList extends Component {
     
   render() {
-    console.log(this.props.events);
-    if(this.props.events.length>0)
-    {
-      console.log(this.props.events);
-      return (
-
-      //   <ul className="EventList">
-        
-        
-      //     <li key={1}>
-      //       <Event className='Event' event={this.props.events[0]} />
-      //     </li>
-        
-      // </ul>
-      // this.eventCounter()
+    
+    return (
         <ul className="EventList">
         
         {this.props.events.map(event =>
@@ -28,21 +15,26 @@ class EventList extends Component {
           </li>
         )}
       </ul>
-        
+
+      
+      
+      
     );
-    }
+  }
 
-    else {
-      return('loading');
-    }
+
+  // eventCounter(){
+  //   let totalEvents=this.props.events;
+
     
-  
-}
-
-  eventCounter(){
-  
     
+  //   return (<ul className="EventList">
+  //           <li key={1}>
+  //           <Event className='Event' event={totalEvents[2]} />
+  //         </li>
+  //         </ul>)
+  // }
 
 }
-}
+
 export default EventList;
