@@ -5,7 +5,7 @@ import Event from './Event';
 class EventList extends Component {
     
   render() {
-    if (this.props.events>0)
+    if (this.props.events.length>0)
       {
       return (
         //   <ul className="EventList">
