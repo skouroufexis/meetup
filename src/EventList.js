@@ -57,7 +57,7 @@ class EventList extends Component {
     //   </ul>
     // )
     
-  }
+  // }
 
 }
 
