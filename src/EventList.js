@@ -5,16 +5,23 @@ import Event from './Event';
 class EventList extends Component {
     
   render() {
-    
-    return (
-        <ul className="EventList">
-        {this.props.events.map(event =>
-          <li key={event.id}>
-            <Event className='Event' event={event} />
-          </li>
-        )}
-      </ul>
-    );
+    if (this.props.events>0)
+      {
+      return (
+          <ul className="EventList">
+          {this.props.events.map(event =>
+            <li key={event.id}>
+              <Event className='Event' event={event} />
+            </li>
+          )}
+        </ul>
+      );
+    }
+
+    else
+    {
+      return 'loading';
+    }
   }
 }
 
