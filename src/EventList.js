@@ -12,11 +12,20 @@ class EventList extends Component {
         
         {this.props.events.map(event => {
 
-              <div className='eventContainer'>
-                  <li key={event.id}>
-                  <Event className='Event' event={event} />
-                  </li>
-              </div>
+            let x =document.getElementsByClassName('eventContainer');
+            if (x.length==0)
+            {
+              return (
+
+                <div className='eventContainer'>
+                <li key={event.id}>
+                <Event className='Event' event={event} />
+                </li>
+            </div>
+
+                      )
+            }
+              
                 
         }
           
