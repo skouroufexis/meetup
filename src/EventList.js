@@ -6,8 +6,9 @@ class EventList extends Component {
     
   render() {
     
-    if(this.props.events)
+    if(this.props.events.length!=0)
     {
+
 
     
     return (
