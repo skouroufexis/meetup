@@ -26,16 +26,12 @@ class EventList extends Component {
     let totalEvents=this.props.events;
 
     
-    totalEvents.map(te=>{
-
-      return (<ul className="EventList">
-            <li key={te.id}>
-            <Event className='Event' event={te} />
+    
+    return (<ul className="EventList">
+            <li key={1}>
+            <Event className='Event' event={totalEvents[2]} />
           </li>
           </ul>)
-
-    })
-    
   }
 
 }
