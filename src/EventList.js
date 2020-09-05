@@ -21,7 +21,7 @@ class EventList extends Component {
 
 
   eventCounter(){
-    let totalEvents=this.state.events;
+    let totalEvents=this.props.events;
 
     return <div>
             <Event className='Event' event={totalEvents[2]} />
