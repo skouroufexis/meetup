@@ -23,10 +23,11 @@ class EventList extends Component {
   eventCounter(){
     let totalEvents=this.props.events;
 
-    return <div>
+    return <ul className="EventList">
+            <li key={1}>
             <Event className='Event' event={totalEvents[2]} />
-            
-          </div> 
+          </li>
+          </ul>
   }
 
 }
