@@ -22,9 +22,9 @@ class Event extends Component{
         
         
         if(this.state.content)
-        console.log(this.state.content);
+        
         {
-            
+            console.log(this.state.content);
             return(
                 <div className='container event'>
                     
