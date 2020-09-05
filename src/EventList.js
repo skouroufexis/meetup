@@ -25,7 +25,9 @@ class EventList extends Component {
 
 
   eventCounter(){
-    <ul className="EventList">
+
+    return(
+      <ul className="EventList">
         
         {this.props.events.map(event =>
           <li key={event.id}>
@@ -33,6 +35,8 @@ class EventList extends Component {
           </li>
         )}
       </ul>
+    )
+    
   }
 
 }
