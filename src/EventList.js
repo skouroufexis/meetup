@@ -17,7 +17,10 @@ class EventList extends Component {
             {
               return (
 
+                
+
                 <div className='eventContainer'>
+                  {x.length}
                 <li key={event.id}>
                 <Event className='Event' event={event} />
                 </li>
