@@ -11,6 +11,7 @@ class EventList extends Component {
     console.log(this.props.events);
     if(this.props.events.length>0)
     {
+      console.log(this.props.events);
       return (
       //   <ul className="EventList">
         
