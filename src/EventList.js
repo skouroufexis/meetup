@@ -6,6 +6,9 @@ class EventList extends Component {
     
   render() {
     
+    if(this.props.events)
+    {
+
     
     return (
       //   <ul className="EventList">
@@ -22,7 +25,7 @@ class EventList extends Component {
       
     );
   }
-
+}
 
   eventCounter(){
     console.log(this.props.events);
