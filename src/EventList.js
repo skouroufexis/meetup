@@ -13,7 +13,7 @@ class EventList extends Component {
     return (
         <ul className="EventList">
         
-          <li key={event.id}>
+          <li key={1}>
             <Event className='Event' event={this.props.events[0]} />
           </li>
 
