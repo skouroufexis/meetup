@@ -21,7 +21,7 @@ class Event extends Component{
 
         
         
-        if(this.state.content)
+        if(this.state.content.length!=0)
         
         {
             console.log(this.state.content);
