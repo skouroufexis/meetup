@@ -56,8 +56,6 @@ async function getOrRenewAccessToken(type, key) {
   return tokenInfo.data.access_token;
 }
 
-
-
 async function getSuggestions(query) {
   if (window.location.href.startsWith('http://localhost')) {
     return [
