@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-
-
-
-
 class Event extends Component{
     
     constructor(props){
@@ -15,8 +11,6 @@ class Event extends Component{
             content:[]
           }
     }
-    
-
     render(){
 
         
@@ -38,7 +32,7 @@ class Event extends Component{
                         )}                    
                     </div>
                     
-                    <div className='d-flex flex-row-reverse' id='div_toggleDetails'>
+                    <div className='d-flex flex-row-reverse div_toggleDetails'>
                         <button  onClick={this.toggleDetails}>Details </button>
                     </div>
                     
