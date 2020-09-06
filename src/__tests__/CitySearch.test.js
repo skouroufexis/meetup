@@ -88,8 +88,6 @@ describe('<CitySearch /> integration', () => {
 
         let updateEvents =jest.fn();
         let CitySearchWrapper = shallow(<CitySearch  updateEvents={updateEvents}/>);
-        
-        
     });
 
   test('get a list of cities when user searches for Munich',async () => {
