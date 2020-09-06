@@ -1,19 +1,26 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow,mount } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 
 let NumberOfEventsWrapper;
+
+
+
 describe('<NumberOfEvents /> component', () => {
 
-    beforeAll(() => {
-         NumberOfEventsWrapper = shallow(<NumberOfEvents />);
-         
-      });  
+
+
+  beforeAll(() => {
+
+        let updateEventsNumber=jest.fn();   
+         NumberOfEventsWrapper = shallow(<NumberOfEvents updateEventsNumber={updateEventsNumber} />);
+  });  
 
 
   test('render number of events text input', () => {
     
     expect(NumberOfEventsWrapper.find('#input_numberOfEvents')).toHaveLength(1);
+    
   });
 
  
@@ -30,14 +37,5 @@ describe('<NumberOfEvents /> component', () => {
     NumberOfEventsWrapper.find('#input_numberOfEvents').simulate('change', eventObject);
     expect(NumberOfEventsWrapper.state('number')).toBe(10);
   });
-
-
-
-
-
-
-
-  
-  
 });
 
