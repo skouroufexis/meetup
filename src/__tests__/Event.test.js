@@ -12,13 +12,13 @@ let event={local_time:'19:00',local_date:'2020-08-26',name:'Networking and Idea 
            link:'https://www.meetup.com/Bologna-Start-Up/events/fpctnlybclbjc/'
             }
 
-let eventTime='19:00 - 2020-08-26';
+let eventTime='2020-08-26 at 19:00';
 let eventName = 'Networking and Idea Sharing  - Aperitivo con Bologna Startup';
 let group={name:'Bologna Startup'};
-let groupName='GROUP: '+ group.name;
+let groupName='Group: '+ group.name;
 
 let rsvp='6';
-    rsvp=rsvp+ ' people are going';
+    rsvp=rsvp+ ' persons are going';
 let description='Mock description for event';
 let visibility= 'public';
 let link='https://www.meetup.com/Bologna-Start-Up/events/fpctnlybclbjc/';
