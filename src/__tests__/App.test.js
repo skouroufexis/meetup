@@ -53,9 +53,38 @@ describe('<App /> integration', () => {
 
 
   test('render correct list of events', () => {
-    const AppWrapper = mount(<App />);
-    AppWrapper.setState({ events: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] });
+    const AppWrapper = mount(<App/>);
+    // const NumberOfEventsWrapper= mount(<NumberOfEvents updateEventsNumber={this.updateEventsNumber}  />);
+    // const EventListWrapper = mount(<EventList events={this.state.events} eventsNumber={this.state.eventsNumber} />);
+
+    AppWrapper.setState({ events: [{ id: 1,group:{name:1} }, { id: 2,group:{name:2} }, { id: 3,group:{name:3} }, { id: 4,group:{name:4} }] });
     expect(AppWrapper.find('.Event')).toHaveLength(4);
   });
-  
+
+
+  test('render correct number of events', () => {
+    const AppWrapper = mount(<App/>);
+
+    //initial number of events set to 4
+    AppWrapper.setState({ events: [{ id: 1,group:{name:1} }, { id: 2,group:{name:2} }, { id: 3,group:{name:3} }, { id: 4,group:{name:4} }] }
+        );
+    
+    
+
+    //display the default number of events (here set to 4)    
+    expect(AppWrapper.find('.Event')).toHaveLength(4);
+
+    //change number of events to 2-->show 2 events 
+    AppWrapper.find('#input_numberOfEvents').simulate('change', { target: { value: '2' } });
+    expect(AppWrapper.find('.Event')).toHaveLength(2);    
+
+    //change number of events to non-numeric-->show default number of events (here set to 4)
+    AppWrapper.find('#input_numberOfEvents').simulate('change', { target: { value: 'a' } });
+    expect(AppWrapper.find('.Event')).toHaveLength(4);    
+
+    //change number of events to blank-->show default number of events (here set to 4)
+    AppWrapper.find('#input_numberOfEvents').simulate('change', { target: { value: '' } });
+    expect(AppWrapper.find('.Event')).toHaveLength(4);   
+
+  });
 });
