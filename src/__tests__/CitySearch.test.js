@@ -8,9 +8,12 @@ let CitySearchWrapper;
 describe('<CitySearch /> component', () => {
 
     beforeAll(() => {
-        CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}}/>);
 
+        let updateEvents =jest.fn();
+        CitySearchWrapper = shallow(<CitySearch  updateEvents={updateEvents}/>);
+        
     });
+
   test('render text input', () => {
     
     expect(CitySearchWrapper.find('.city')).toHaveLength(1);
@@ -81,9 +84,15 @@ describe('<CitySearch /> component', () => {
 
 describe('<CitySearch /> integration', () => {
 
-  test('get a list of cities when user searches for Munich',async () => {
+    beforeAll(() => {
 
-    const CitySearchWrapper = shallow(<CitySearch />);
+        let updateEvents =jest.fn();
+        let CitySearchWrapper = shallow(<CitySearch  updateEvents={updateEvents}/>);
+        
+        
+    });
+
+  test('get a list of cities when user searches for Munich',async () => {
 
     CitySearchWrapper.find('.city').simulate('change', { target: { value: 'Munich' } });
     await CitySearchWrapper.update();
