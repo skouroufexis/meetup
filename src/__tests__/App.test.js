@@ -88,7 +88,5 @@ describe('<App /> integration', () => {
     AppWrapper.find('#input_numberOfEvents').simulate('change', { target: { value: '' } });
     expect(AppWrapper.find('.Event')).toHaveLength(20);   
 
-
-
   });
 });
