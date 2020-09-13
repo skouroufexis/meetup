@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import * as atatus from 'atatus-spa';
-atatus.config('bf59846400ca481389ac39a956631b46').install();
+// import * as atatus from 'atatus-spa';
+// atatus.config('bf59846400ca481389ac39a956631b46').install();
 
 ReactDOM.render(
   <React.StrictMode>
