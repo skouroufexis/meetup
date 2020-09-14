@@ -6,9 +6,6 @@ class NumberOfEvents extends Component {
         number:32,
         infoText:''
       }
-
-
-
   render() {
     return (
       <div className='container'>
@@ -38,11 +35,7 @@ class NumberOfEvents extends Component {
     else
       {
         this.setState({infoText:'Please enter a valid event number'})
-      }
-    
-
-
-    
+      }  
   }
 
 }
