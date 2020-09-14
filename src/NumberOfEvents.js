@@ -30,7 +30,7 @@ class NumberOfEvents extends Component {
     let n= event.target.value;
     this.setState({number:n});
     this.props.updateEventsNumber(n);
-    if (n>0 && n!='')
+    if (n>0 || n=='')
       {        
         this.setState({infoText:''})
       }
