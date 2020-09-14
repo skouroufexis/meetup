@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/meetup/static/css/main.f0c6d20b.chunk.css",
-    "main.js": "/meetup/static/js/main.b575d2f9.chunk.js",
-    "main.js.map": "/meetup/static/js/main.b575d2f9.chunk.js.map",
+    "main.js": "/meetup/static/js/main.064431dd.chunk.js",
+    "main.js.map": "/meetup/static/js/main.064431dd.chunk.js.map",
     "runtime-main.js": "/meetup/static/js/runtime-main.61f01ad6.js",
     "runtime-main.js.map": "/meetup/static/js/runtime-main.61f01ad6.js.map",
-    "static/js/2.220b4fe4.chunk.js": "/meetup/static/js/2.220b4fe4.chunk.js",
-    "static/js/2.220b4fe4.chunk.js.map": "/meetup/static/js/2.220b4fe4.chunk.js.map",
+    "static/js/2.d9e2527e.chunk.js": "/meetup/static/js/2.d9e2527e.chunk.js",
+    "static/js/2.d9e2527e.chunk.js.map": "/meetup/static/js/2.d9e2527e.chunk.js.map",
     "index.html": "/meetup/index.html",
-    "precache-manifest.d932449cda6557ff86726e9543d2ce92.js": "/meetup/precache-manifest.d932449cda6557ff86726e9543d2ce92.js",
+    "precache-manifest.3a4bd455db8ba9ffa2f22352f756c096.js": "/meetup/precache-manifest.3a4bd455db8ba9ffa2f22352f756c096.js",
     "service-worker.js": "/meetup/service-worker.js",
     "static/css/main.f0c6d20b.chunk.css.map": "/meetup/static/css/main.f0c6d20b.chunk.css.map",
-    "static/js/2.220b4fe4.chunk.js.LICENSE.txt": "/meetup/static/js/2.220b4fe4.chunk.js.LICENSE.txt"
+    "static/js/2.d9e2527e.chunk.js.LICENSE.txt": "/meetup/static/js/2.d9e2527e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.61f01ad6.js",
-    "static/js/2.220b4fe4.chunk.js",
+    "static/js/2.d9e2527e.chunk.js",
     "static/css/main.f0c6d20b.chunk.css",
-    "static/js/main.b575d2f9.chunk.js"
+    "static/js/main.064431dd.chunk.js"
   ]
 }
