@@ -80,6 +80,14 @@ async function getSuggestions(query) {
       }
     ];
   }
+
+  else
+  {
+    if (!navigator.onLine) {
+        return [];
+        
+      }
+  }
   
     const token = await getAccessToken();
     
