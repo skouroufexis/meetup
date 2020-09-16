@@ -103,6 +103,7 @@ async function getSuggestions(query) {
       if (!navigator.onLine) {
         const events = localStorage.getItem('lastEvents');
         return JSON.parse(events);
+        console.log('offline');
       }
       const token = await getAccessToken();
 
