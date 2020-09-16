@@ -101,6 +101,7 @@ async function getSuggestions(query) {
     else
     {
       if (!navigator.onLine) {
+        alert('a');
         const events = localStorage.getItem('lastEvents');
         return JSON.parse(events);
       }
