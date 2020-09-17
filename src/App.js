@@ -38,6 +38,7 @@ class App extends Component {
   componentDidMount(){
     if(!navigator.onLine)
           {
+            
             this.setState({infoText:'No internet connection! You are now viewing an cached version of the meetup application'});
           }
   }
