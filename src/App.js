@@ -29,7 +29,6 @@ class App extends Component {
          <CitySearch  updateEvents={this.updateEvents} />
          <NumberOfEvents updateEventsNumber={this.updateEventsNumber}  />
          <EventList events={this.state.events} eventsNumber={this.state.eventsNumber} />
-         
       </div>
     )
   }
@@ -39,7 +38,7 @@ class App extends Component {
     if(!navigator.onLine)
           {
             console.log('show message offline');
-            this.setState({infoText:'No internet connection! You are now viewing an cached version of the meetup application'});
+            this.setState({infoText:'No internet connection! You are now viewing a cached version of the meetup application'});
           }
     else
           {
