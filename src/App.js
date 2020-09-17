@@ -43,6 +43,7 @@ class App extends Component {
           }
     else
           {
+            console.log('user is online');
             this.setState({infoText:''});
           }
   }
