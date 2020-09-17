@@ -41,6 +41,10 @@ class App extends Component {
             console.log('show message offline');
             this.setState({infoText:'No internet connection! You are now viewing an cached version of the meetup application'});
           }
+    else
+          {
+            this.setState({infoText:''});
+          }
   }
   
   updateEvents = (lat, lon) => {
