@@ -3,6 +3,8 @@ import axios from 'axios';
 
 
 
+
+
 function getAccessToken(){
   const accessToken = localStorage.getItem('access_token');
   console.log(accessToken);
@@ -58,6 +60,8 @@ async function getOrRenewAccessToken(type, key) {
 
 async function getSuggestions(query) {
   if (window.location.href.startsWith('http://localhost')) {
+
+    
     return [
       {
         city: 'Munich',
@@ -103,7 +107,9 @@ async function getSuggestions(query) {
       if (!navigator.onLine) {
         const events = localStorage.getItem('lastEvents');
         console.log('offline');
+        
         return JSON.parse(events);
+        
         
       }
       const token = await getAccessToken();
