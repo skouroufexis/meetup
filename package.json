@@ -13,10 +13,12 @@
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
+    "moment": "^2.28.0",
     "puppeteer": "^5.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "recharts": "^1.8.5"
   },
   "scripts": {
     "start": "react-scripts start",
