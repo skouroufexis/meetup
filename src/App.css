@@ -152,8 +152,8 @@ button {
   }
 
 .div_eventContent div:nth-child(4) {
-    color:rgba(0,0,0,0.4);
-    font-style: italic;
+    color: rgba(0,0,0,1);
+    
     text-align: justify;
     }
 
@@ -170,6 +170,7 @@ button {
       
   }   
 
+  .event_row { margin-top: 1%;}
 .div_eventContent div:nth-child(7) {
     color:rgba(0,0,0,0.4);
     text-align: justify;
@@ -188,7 +189,7 @@ button {
 }
   
 
-      
+   
 
 
       
