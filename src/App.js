@@ -14,9 +14,8 @@ import {ResponsiveContainer,ScatterChart,CartesianGrid,XAxis,YAxis,Tooltip,Scatt
 
 import moment from 'moment';
 
-import {renderLineChart} from './chart'
 
-console.log(renderLineChart);
+
 
 class App extends Component {
 
