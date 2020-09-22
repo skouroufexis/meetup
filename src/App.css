@@ -158,9 +158,9 @@ button {
     }
 
     .div_eventContent div:nth-child(5) {
-      color:rgba(0,0,0,0.8);
+      color:rgba(0,0,0,0.4);
       text-align: left;
-      font-size: 0.6em;
+      font-style: italic;
       
       }
   
