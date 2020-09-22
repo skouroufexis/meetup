@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {ChartPie} from './chart';
 
 class Event extends Component{
     
@@ -8,7 +9,8 @@ class Event extends Component{
         this.state = {
             open:false,
             event:[this.props.event],        
-            content:[]
+            content:[],
+            pieChartData:[]
           }
     }
     render(){
@@ -29,7 +31,11 @@ class Event extends Component{
                             {
                                 return(<div className='row event_row' key={c+ '1'}><div className='col-12 extra'>{c}</div></div>)    
                             }
-                        )}                    
+                        )}       
+                    {/* <div className='col-12'>
+                    <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} />             
+                    </div> */}
+                    
                     </div>
                     
                     <div className='d-flex flex-row-reverse div_toggleDetails'>
@@ -58,17 +64,30 @@ class Event extends Component{
             let eventName=event.name;
                 
             let groupName= 'Group: '+ event.group.name;
+
+            let rsvpLimit=event.rsvp_limit;
+
+            
                 
             let rsvp=event.yes_rsvp_count;
-                if (rsvp==1)
+
+            let PChart='';
+               
+            //add Pie Chart data only if rsvp_limit is present
+            if(rsvpLimit)
                 {
-                    rsvp=rsvp+' person is going';
-                }
-                else
+                    this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
+                        PChart =<div className='row'> <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} /></div>
+                        this.setState({content:[eventTime,eventName,groupName,PChart]});
+                    })
+
+                }    
+             else
                 {
-                    rsvp=rsvp+' persons are going';
-                } 
-            this.setState({content:[eventTime,eventName,groupName,rsvp]});
+                    this.setState({content:[eventTime,eventName,groupName]});
+                }   
+            
+            
         }
         
         
@@ -99,18 +118,15 @@ class Event extends Component{
         let eventName=event.name;
             
         let groupName= 'Group: '+ event.group.name;
-            
+        
+        let rsvpLimit=event.rsvp_limit;
+
         let rsvp=event.yes_rsvp_count;
-            if (rsvp==1)
-            {
-                rsvp=rsvp+' person is going';
-            }
-            else
-            {
-                rsvp=rsvp+' persons are going';
-            }
+           
+        let PChart='';
+            
     
-            console.log(event);
+        console.log(event);
         let description=<div>{event.description}</div>
             
             
@@ -122,11 +138,40 @@ class Event extends Component{
 
         if(this.state.open==false)
         {
-            this.setState({content:[eventTime,eventName,groupName,rsvp]})
+
+            //add Pie Chart data only if rsvp_limit is present
+            if(rsvpLimit)
+            {
+                this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
+                    PChart =<div className='row'> <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} /></div>
+                    this.setState({content:[eventTime,eventName,groupName,PChart]});
+                })
+
+            }    
+            else
+            {
+                this.setState({content:[eventTime,eventName,groupName]});
+            }    
+            
         }
         else
         {
-            this.setState({content:[eventTime,eventName,groupName,rsvp,description,visibility,link]});
+
+                //add Pie Chart data only if rsvp_limit is present
+            if(rsvpLimit)
+            {
+                this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
+                    PChart =<div className='row'> <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} /></div>
+                    this.setState({content:[eventTime,eventName,groupName,description,visibility,link,PChart]});
+                })
+
+            }    
+            else
+            {
+                this.setState({content:[eventTime,eventName,groupName,description,visibility,link]});
+            }    
+
+            
         }
     }
 
