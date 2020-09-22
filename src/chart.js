@@ -20,9 +20,6 @@ class ChartPie extends PureComponent {
     
     let colours =['darkcyan','green'];
 
-  
-
-
     if(data)
     {
 
