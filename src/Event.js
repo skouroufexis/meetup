@@ -14,13 +14,10 @@ class Event extends Component{
           }
     }
     render(){
-
-        
-        
+   
         if(this.state.content)
         
         {
-            
             return(
                 <div className='container event'>
                     
@@ -29,13 +26,16 @@ class Event extends Component{
                         {this.state.content.map(
                             function(c)
                             {
-                                return(<div className='row event_row' key={c+ '1'}><div className='col-12 extra'>{c}</div></div>)    
+                                
+                                return(
+                                    <div className='row event_row' key={c+ '1'}>
+                                    
+                                <div className='col-12 extra'>{c}</div>
+                                    </div>)    
                             }
                         )}       
-                    {/* <div className='col-12'>
-                    <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} />             
-                    </div> */}
-                    
+                        
+
                     </div>
                     
                     <div className='d-flex flex-row-reverse div_toggleDetails'>
@@ -49,8 +49,6 @@ class Event extends Component{
         {
             return('loading')
         }
-        
-
     }
 
     componentDidMount(){
@@ -67,25 +65,24 @@ class Event extends Component{
 
             let rsvpLimit=event.rsvp_limit;
 
-            
-                
             let rsvp=event.yes_rsvp_count;
 
             let PChart='';
                
-            //add Pie Chart data only if rsvp_limit is present
-            if(rsvpLimit)
-                {
-                    this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
-                        PChart =<div className='row'> <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} /></div>
-                        this.setState({content:[eventTime,eventName,groupName,PChart]});
-                    })
+            this.setState({content:[eventTime,eventName,groupName,PChart]});
+            // //add Pie Chart data only if rsvp_limit is present
+            // if(rsvpLimit)
+            //     {
+            //         this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
+            //             PChart =<div className='row'> <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} /></div>
+            //             this.setState({content:[eventTime,eventName,groupName,PChart]});
+            //         })
 
-                }    
-             else
-                {
-                    this.setState({content:[eventTime,eventName,groupName]});
-                }   
+            //     }    
+            //  else
+            //     {
+            //         this.setState({content:[eventTime,eventName,groupName]});
+            //     }   
             
             
         }
@@ -94,11 +91,15 @@ class Event extends Component{
         
     }
 
-    toggleDetails=()=>{
+    
+
+    toggleDetails=(e)=>{
         
         if(this.state.open==false)
         {
             this.setState({open:true},this.updateContent);
+            
+            
             
         }
         else
@@ -127,11 +128,9 @@ class Event extends Component{
             
     
         console.log(event);
-        let description=<div>{event.description}</div>
-            
-            
-            
-        let visibility=event.visibility;
+        let description=<div dangerouslySetInnerHTML={{__html:event.description}}></div>
+
+        let visibility=event.visibility +' event';
         let link = <a href={event.link}>{event.link} </a>;  
 
         
@@ -139,25 +138,27 @@ class Event extends Component{
         if(this.state.open==false)
         {
 
+            this.setState({content:[eventTime,eventName,groupName]});
             //add Pie Chart data only if rsvp_limit is present
-            if(rsvpLimit)
-            {
-                this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
-                    PChart =<div className='row'> <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} /></div>
-                    this.setState({content:[eventTime,eventName,groupName,PChart]});
-                })
+            // if(rsvpLimit)
+            // {
+            //     this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
+            //         PChart =<div className='row'> <ChartPie className='chart' data={[{name:'max attendance',value:this.state.pieChartData[0]},{name:'going',value:this.state.pieChartData[1]}]} /></div>
+            //         this.setState({content:[eventTime,eventName,groupName,PChart]});
+            //     })
 
-            }    
-            else
-            {
-                this.setState({content:[eventTime,eventName,groupName]});
-            }    
+            // }    
+            // else
+            // {
+                
+            //     this.setState({content:[eventTime,eventName,groupName]});
+            // }    
             
         }
         else
         {
 
-                //add Pie Chart data only if rsvp_limit is present
+             //add Pie Chart data only if rsvp_limit is present
             if(rsvpLimit)
             {
                 this.setState({pieChartData:[rsvpLimit,rsvp]},function(){
@@ -168,7 +169,8 @@ class Event extends Component{
             }    
             else
             {
-                this.setState({content:[eventTime,eventName,groupName,description,visibility,link]});
+                PChart=''
+                this.setState({content:[eventTime,eventName,groupName,description,visibility,link,PChart]});
             }    
 
             
