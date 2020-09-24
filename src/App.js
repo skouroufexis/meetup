@@ -29,26 +29,32 @@ class App extends Component {
     
     return (
       <div className="App">
+          <div className='container'>
+            <div className='row'> <h1 className='app_title'>MEETUP APP</h1></div>
+          </div>
           <OfflineAlert text={this.state.infoText} />
           
-         <CitySearch  updateEvents={this.updateEvents} />
-         <NumberOfEvents updateEventsNumber={this.updateEventsNumber}  />
+          <div className = 'container' id='top_menu_container'>
+            <div className='row'><CitySearch  updateEvents={this.updateEvents} /></div>
+            <div className='row'><NumberOfEvents updateEventsNumber={this.updateEventsNumber}  /></div>
+          </div>
+         
+          <div className='container'>
+            <div className='row' id='scatterChart_header'><h5>Number of events per day</h5></div>
+          </div>  
+       <div className='container' id='scatter_chart_container'>
 
-        <ResponsiveContainer height={400}>
-          <ScatterChart
-            
-            
-            margin={{
-              top: 20, right: 20, bottom: 20, left: 20,
-            }}
-          >
-            <CartesianGrid />
-            <XAxis type="category" dataKey="date" name="date" />
-            <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
+          <ResponsiveContainer  height={400}>
+          <ScatterChart >
+            <CartesianGrid  stroke='rgba(256,256,256,0.8)' fill='rgba(0,139,139,0.1)' />
+            <XAxis stroke='darkcyan' type="category" dataKey="date" name="date"/>
+            <YAxis width={20} stroke='darkcyan' type="number" dataKey="number" name="number of events" allowDecimals={false} />
             <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Scatter name="A school" data={this.getData()} fill="#8884d8" />
+            <Scatter  data={this.getData()} fill="rgba(0,0,0,0.7)" />
           </ScatterChart>
         </ResponsiveContainer>
+       </div>
+        
 
 
          <EventList events={this.state.events} eventsNumber={this.state.eventsNumber} />
