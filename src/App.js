@@ -5,6 +5,8 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 
 import NumberOfEvents from './NumberOfEvents';
+import {Modal} from  './modal';
+
 import { render } from 'enzyme';
 import { getEvents } from './api';
 
@@ -21,6 +23,7 @@ class App extends Component {
 
   state = {events:[],
            eventsNumber:32,
+           modalContent:[],
            infoText:''
           }
 
@@ -29,7 +32,8 @@ class App extends Component {
     
     return (
       <div className="App">
-          <div className='container'>
+          <header>
+          <div className='container' id='app_header'>
             <div className='row'> <h1 className='app_title'>MEETUP APP</h1></div>
           </div>
           <OfflineAlert text={this.state.infoText} />
@@ -38,6 +42,9 @@ class App extends Component {
             <div className='row'><CitySearch  updateEvents={this.updateEvents} /></div>
             <div className='row'><NumberOfEvents updateEventsNumber={this.updateEventsNumber}  /></div>
           </div>
+          </header>
+
+          
          
           <div className='container'>
             <div className='row' id='scatterChart_header'><h5>Number of events per day</h5></div>
@@ -54,9 +61,7 @@ class App extends Component {
           </ScatterChart>
         </ResponsiveContainer>
        </div>
-        
-
-
+  
          <EventList events={this.state.events} eventsNumber={this.state.eventsNumber} />
       </div>
     )
